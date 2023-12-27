@@ -1,0 +1,13 @@
+{{ $options := "" }}
+
+{{ if eq (hugo.Environment) "development" }}
+  {{ $options = dict "enableSourceMap" true }}
+{{ else }}
+  {{ $options = dict "enableSourceMap" false "outputStyle" "compressed" }}
+{{ end -}}
+
+{{ $main := resources.Get "scss/main.scss" | toCSS $options | minify | fingerprint }}
+
+{{ partial "font.html" . }}
+<link rel="preload" href="{{ $main.RelPermalink }}" as="style">
+<link href="{{ $main.RelPermalink }}" rel="stylesheet" integrity="{{ $main.Data.integrity }}">
