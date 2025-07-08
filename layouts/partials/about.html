@@ -1,0 +1,12 @@
+<section class="about">
+    <h2>{{.heading}}</h2>
+    <p>{{.subheading}}</p>
+    <div class="what-we-do">
+        <h3>{{ .what_we_do.title }}</h3>
+        <ul>
+            {{ range .what_we_do.bullets }}
+            <li>{{ . }}</li>
+            {{ end }}
+        </ul>
+    </div>
+</section>

@@ -1,0 +1,28 @@
+<section class="report">
+    <h2>{{.heading}}</h2>
+    {{ range .metrics }}
+        <h4>{{.subheading}}</h4>
+        <p>{{.description}}</p>
+        <a href="{{.cta_link}}">{{.cta}}</a>
+    
+        <ul class="bullets">
+            {{ range .bullets }}
+            <li>
+                {{ readFile (printf "static/%s" .icon) | safeHTML }}
+                {{.value}} {{ .title | markdownify }}
+            </li>
+            {{ end }}
+        </ul>
+    {{ end }}
+    
+
+
+    {{ range .key_findings }}
+        <h3>{{.title}}</h3>
+        <ul>
+            {{ range .list }}
+            <li>{{ . | markdownify}}</li>
+            {{ end }}
+        </ul>
+    {{ end }}    
+</section>
