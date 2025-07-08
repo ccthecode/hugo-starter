@@ -5,7 +5,7 @@ Starting theming right away without the stress of SCSS setup
 Includes:
 
 - Modular Data Structure, etc
-- SCSS for styling
+- SCSS for styling (bundled, minified and fingerprinted using hugo pipes)
 - Static fonts (fonts are saved locally)
 - SVGs safeHTML rendering (faster load time)
 - Modular structure using partials
