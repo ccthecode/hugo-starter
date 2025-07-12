@@ -1,16 +1,9 @@
-body{
-    padding: 2rem;
-}
+ul.bullets {
+  padding-left: 0;
 
-li, a{
-    font-family: "Arimo", sans-serif;
-}
-
-ul.bullets{
-    padding-left: 0;
-    li{
-        list-style-type: none;
-        display: flex;
-        gap: 1rem;
-    }
+  li {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+  }
 }

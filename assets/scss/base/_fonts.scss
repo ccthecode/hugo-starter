@@ -1,0 +1,19 @@
+/* pridi-500 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Pridi';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/pridi/pridi-v14-latin-500.woff2') format('woff2'),
+       url('/fonts/pridi/pridi-v14-latin-500.ttf') format('truetype');
+}
+
+/* arimo-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/arimo/arimo-v34-latin-regular.woff2') format('woff2'),
+       url('/fonts/arimo/arimo-v34-latin-regular.ttf') format('truetype');
+}

@@ -1,0 +1,27 @@
+// SCSS Variables (used within SCSS files)
+$color-primary: #1f6600;
+$color-dark: #2f2f2f;
+
+$bg-primary: #eef8e9;
+$bg-secondary: #338027;
+$bg-secondary-hover: rgba(51, 128, 39, 0.824);
+$bg-secondary-dark: darkgreen;
+$bg-secondary-opaque: rgba(234, 245, 234, 0.144);
+
+$primary-blue: #007acc;
+$gray-dark: #535353;
+$black: #000;
+
+$border-radius: 0.6rem;
+
+// CSS Custom Properties (used in global styles or JS)
+:root {
+  --color-primary: #{$color-primary};
+  --color-dark: #{$color-dark};
+
+  --bg-primary: #{$bg-primary};
+  --bg-secondary: #{$bg-secondary};
+  --bg-secondary-hover: #{$bg-secondary-hover};
+  --bg-secondary-dark: #{$bg-secondary-dark};
+  --bg-secondary-opaque: #{$bg-secondary-opaque};
+}

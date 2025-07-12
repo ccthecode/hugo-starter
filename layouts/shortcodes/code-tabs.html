@@ -1,0 +1,29 @@
+{{ $arr := split .Inner "```" }}
+{{ $current := "" }}
+{{ $muttedArr := slice }}
+{{ range $index,$v := $arr }}
+{{ if (strings.Contains . " ")}}
+{{ $muttedArr = $muttedArr | append . }}
+{{ end }}
+{{ end }}
+
+<section class="code-tab">
+    <div class="language-row">
+    {{ range $index,$v := $muttedArr }}
+    {{ if (strings.Contains . " ")}} 
+    {{ $match := findRE `^\s*([^\s]+)` . }}
+    {{ $language := cond (eq (index $match 0) "go-html-template") "hugo" (index $match 0) }}
+    {{ $current = cond (lt $index 1) "current" "" }}
+    <span data-language-index="{{$index}}" data-language-tag="{{$language}}" class="language-tab-trigger {{$current}}">{{ readFile (printf "/static/icons/%s.svg" $language) | safeHTML }} <span class="code-lang-name">{{ $language | humanize }}</span></span>
+    {{ end }}
+    {{ end }}
+    </div>
+    <div class="code-block-wrapper">
+        <button class="btn-copy-code">📋</button>
+        {{ .Inner | markdownify }}
+    </div>
+</section class="code-tab">
+
+<style>
+    
+</style>

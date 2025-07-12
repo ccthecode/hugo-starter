@@ -1,3 +1,11 @@
-@import "custom";
-@import "font";
-@import "variables";
+@import 'abstracts/variables';
+@import 'base/base';
+@import 'base/fonts';
+@import 'base/reset';
+@import 'base/typography';
+@import 'components/code-tabs';
+@import 'layout/responsive';
+@import 'utilities/background';
+@import 'utilities/text';
+
+@import 'custom';

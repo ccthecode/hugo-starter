@@ -1,0 +1,50 @@
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const codeTabs = document.querySelectorAll(".code-tab")
+        
+        codeTabs.forEach((tabContainer) => {
+            const triggers = tabContainer.querySelectorAll(".language-tab-trigger")
+            const highlights = tabContainer.querySelectorAll(".highlight")
+            let pureCode = "";
+
+            // Show the first code block by default
+            highlights[0]?.classList.add("reveal")
+            triggers[0]?.classList.add("current")
+
+            tabContainer.addEventListener("click", (e) => {
+                const trigger = e.target.closest(".language-tab-trigger")
+
+                const copyButton = e.target.closest('.btn-copy-code');
+                
+                if (copyButton) {
+                    const codeLines = Array.from(copyButton.parentElement.querySelectorAll('.highlight.reveal > pre > code > span'))
+                    pureCode = codeLines.map(line => {
+                        const isNumbered = line.children.length > 1 ;
+                        const segments = isNumbered ? line.querySelectorAll('span')[1].innerText : line.querySelectorAll('span > span')[0].innerText;
+                        return segments
+                    }).filter(line => line.trim() !== '\n').join('')
+
+                    navigator.clipboard.writeText(pureCode).then(() => {
+                        copyButton.innerText = "✅"
+                        setTimeout(() => (copyButton.innerHTML = "📋"), 1500)
+                    })
+                    console.log(pureCode, "code")
+                } 
+                
+                if (!trigger) return
+                
+                const selectedIndex = parseInt(trigger.dataset.languageIndex)
+                if (isNaN(selectedIndex)) return
+
+                // Update active tab class
+                triggers.forEach(t => t.classList.remove("current"))
+                trigger.classList.add("current")
+                currentIndex = selectedIndex
+
+                // Toggle code blocks
+                highlights.forEach(h => h.classList.remove("reveal"))
+                highlights[selectedIndex]?.classList.add("reveal")
+            })
+        })
+    })
+</script>
